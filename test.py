@@ -1,8 +1,7 @@
 import cv2
 import numpy as np
 
-frame_window = 10
-emotion_offsets = (20, 40)
+offset = (20, 40)
 
 face_detection = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
@@ -17,7 +16,7 @@ while True:
     for face_coordinates in faces:
 
         x, y, width, height = face_coordinates
-        x_off, y_off = emotion_offsets
+        x_off, y_off = offset
         x1, x2, y1, y2 = x - x_off, x + width + x_off, y - y_off, y + height + y_off
 
         gray_face = gray_image[y1:y2, x1:x2]
